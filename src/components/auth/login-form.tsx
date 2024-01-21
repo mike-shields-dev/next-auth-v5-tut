@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import CardWrapper from '@/components/auth/card-wrapper';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -46,6 +47,25 @@ export default function LoginForm() {
                       {...field}
                       type="email"
                       placeholder="Enter your email address"
+                      required
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="password"
+                      placeholder="******"
+                      required
                     />
                   </FormControl>
                   <FormMessage />
@@ -53,6 +73,9 @@ export default function LoginForm() {
               )}
             />
           </div>
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
         </form>
       </Form>
     </CardWrapper>
