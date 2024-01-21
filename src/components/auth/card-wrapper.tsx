@@ -1,4 +1,5 @@
 import Header from '@/components/auth/header';
+import Social from '@/components/auth/social';
 import {
   Card,
   CardContent,
@@ -27,7 +28,11 @@ export default function CardWrapper({
         <Header label={headerLabel} />
       </CardHeader>
       <CardContent>{children}</CardContent>
-      <CardFooter></CardFooter>
+      {showSocial && (
+        <CardFooter>
+          <Social />
+        </CardFooter>
+      )}
     </Card>
   );
 }
