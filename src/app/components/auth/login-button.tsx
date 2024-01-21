@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 interface LoginButtonProps {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ export function LoginButton({
   const router = useRouter();
 
   function onClick() {
-    router.push("/auth/login");
+    router.push("/login");
   }
 
   if (mode === "modal") {
