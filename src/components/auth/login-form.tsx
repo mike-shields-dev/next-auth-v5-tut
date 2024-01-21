@@ -10,6 +10,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { LoginSchema } from '@/schemas';
@@ -47,6 +48,7 @@ export default function LoginForm() {
                       placeholder="Enter your email address"
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
