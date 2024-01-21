@@ -1,3 +1,4 @@
+import BackButton from '@/components/auth/back-button';
 import Header from '@/components/auth/header';
 import Social from '@/components/auth/social';
 import {
@@ -33,6 +34,12 @@ export default function CardWrapper({
           <Social />
         </CardFooter>
       )}
+      <CardFooter>
+        <BackButton
+          label={backButtonLabel}
+          href={backButtonHref} 
+        />
+      </CardFooter>
     </Card>
   );
 }
