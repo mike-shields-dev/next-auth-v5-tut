@@ -1,5 +1,7 @@
+import Header from '@/app/components/auth/header';
 import {
   Card,
+  CardHeader,
 } from '@/components/ui/card';
 
 interface CardWrapperProps {
@@ -17,7 +19,12 @@ export default function CardWrapper({
   backButtonLabel,
   showSocial,
 }: CardWrapperProps) {
-  return <Card className='w-[400px] shadow-md'>
-    {children}
-    </Card>;
+  return (
+    <Card className="w-[400px] shadow-md">
+      <CardHeader>
+        <Header label={headerLabel} />
+      </CardHeader>
+      {children}
+    </Card>
+  );
 }
