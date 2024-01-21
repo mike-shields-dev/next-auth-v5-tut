@@ -1,13 +1,13 @@
 import { Poppins } from 'next/font/google';
 
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 import { LoginButton } from './components/auth/login-button';
-import { Button } from './components/ui/button';
 
 const font = Poppins({
   subsets: ["latin"],
-  weight: ["600"], 
+  weight: ["600"],
 });
 
 export default function Home() {
@@ -23,12 +23,13 @@ export default function Home() {
       from-sky-400 to-blue-800"
     >
       <div className="text-center space-y-6">
-        <h1 className={cn(
+        <h1
+          className={cn(
             font.className,
             `text-6xl 
             font-semibold 
             text-white 
-            drop-shadow-md` 
+            drop-shadow-md`
           )}
         >
           Auth
@@ -36,7 +37,9 @@ export default function Home() {
         <p className="text-white text-lg">A simple authentication service</p>
         <div>
           <LoginButton>
-            <Button variant="secondary" size="lg" className="capitalize">sign in</Button>
+            <Button variant="secondary" size="lg" className="capitalize">
+              sign in
+            </Button>
           </LoginButton>
         </div>
       </div>
