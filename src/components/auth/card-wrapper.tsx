@@ -26,7 +26,8 @@ export default function CardWrapper({
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>
-      {children}
+      <CardContent>{children}</CardContent>
+      <CardFooter></CardFooter>
     </Card>
   );
 }
