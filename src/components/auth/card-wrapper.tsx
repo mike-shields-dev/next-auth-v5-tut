@@ -1,6 +1,8 @@
-import Header from '@/app/components/auth/header';
+import Header from '@/components/auth/header';
 import {
   Card,
+  CardContent,
+  CardFooter,
   CardHeader,
 } from '@/components/ui/card';
 

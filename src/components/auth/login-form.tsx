@@ -1,4 +1,4 @@
-import CardWrapper from '@/app/components/auth/card-wrapper';
+import CardWrapper from '@/components/auth/card-wrapper';
 
 export default function LoginForm() {
   return (
