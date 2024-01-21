@@ -34,9 +34,11 @@ export default function Home() {
           Auth
         </h1>
         <p className="text-white text-lg">A simple authentication service</p>
-        <LoginButton>
-          <Button variant="secondary" size="lg" className="capitalize">sign in</Button>
-        </LoginButton>
+        <div>
+          <LoginButton>
+            <Button variant="secondary" size="lg" className="capitalize">sign in</Button>
+          </LoginButton>
+        </div>
       </div>
     </main>
   );
