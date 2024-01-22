@@ -8,7 +8,7 @@ import {
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { Login } from '@/actions/login';
+import { login } from "@/actions/login";
 import { CardWrapper } from '@/components/auth/card-wrapper';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
@@ -42,7 +42,7 @@ export default function LoginForm() {
     setSuccess("");
 
     startTransition(() => {
-      Login(values).then((data) => {
+      login(values).then((data) => {
         setError(data.error);
         setSuccess(data.success);
       });
