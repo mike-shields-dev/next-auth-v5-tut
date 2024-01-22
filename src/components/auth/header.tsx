@@ -11,7 +11,7 @@ interface HeaderProps {
   label: string;
 }
 
-export default function Header({ label }: HeaderProps) {
+export function Header({ label }: HeaderProps) {
   return (
     <div className="w-full flex flex-col gap-y-4 items-center justify-center">
       <h2 className={cn(font.className, "text-3xl font-semibold")}>Auth</h2>

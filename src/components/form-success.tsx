@@ -4,7 +4,7 @@ interface FormSuccessProps {
   message?: string;
 }
 
-function FormSuccess({ message }: FormSuccessProps) {
+export function FormSuccess({ message }: FormSuccessProps) {
   if (!message) {
     return null;
   }
@@ -25,5 +25,3 @@ function FormSuccess({ message }: FormSuccessProps) {
     </div>
   );
 }
-
-export { FormSuccess };

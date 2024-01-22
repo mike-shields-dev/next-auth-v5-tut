@@ -4,7 +4,7 @@ interface FormErrorProps {
   message?: string;
 }
 
-function FormError({ message }: FormErrorProps) {
+export function FormError({ message }: FormErrorProps) {
   if (!message) {
     return null;
   }
@@ -25,5 +25,3 @@ function FormError({ message }: FormErrorProps) {
     </div>
   );
 }
-
-export { FormError };
