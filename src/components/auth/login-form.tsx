@@ -70,7 +70,6 @@ export default function LoginForm() {
                       {...field}
                       type="email"
                       placeholder="Enter your email address"
-                      required
                       disabled={isPending}
                     />
                   </FormControl>
@@ -89,7 +88,6 @@ export default function LoginForm() {
                       {...field}
                       type="password"
                       placeholder="******"
-                      required
                       disabled={isPending}
                     />
                   </FormControl>
