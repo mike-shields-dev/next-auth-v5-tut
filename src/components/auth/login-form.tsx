@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import CardWrapper from '@/components/auth/card-wrapper';
+import { FormError } from '@/components/form-error';
+import { FormSuccess } from '@/components/form-success';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -77,6 +79,8 @@ export default function LoginForm() {
               )}
             />
           </div>
+          <FormSuccess message="Email sent" />
+          <FormError message="Invalid credentials" />
           <Button type="submit" className="w-full">
             Login
           </Button>
