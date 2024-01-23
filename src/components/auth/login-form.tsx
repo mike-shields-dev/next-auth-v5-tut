@@ -8,7 +8,7 @@ import {
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { login } from "@/actions/login";
+import { login } from '@/actions/login';
 import { CardWrapper } from '@/components/auth/card-wrapper';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
@@ -51,7 +51,7 @@ export default function LoginForm() {
 
   return (
     <CardWrapper
-      backButtonHref="/register"
+      backButtonHref="/auth/register"
       backButtonLabel="Don't have an account?"
       headerLabel="Welcome back"
       showSocial
