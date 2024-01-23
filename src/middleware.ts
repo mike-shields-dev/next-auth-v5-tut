@@ -14,22 +14,28 @@ export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   const isAPIAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+  const isProtectedRoute = !publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isAPIAuthRoute) {
-    return null;
+    // allow access to route
+    return null; 
   }
   
   if (isAuthRoute) {
     if (isLoggedIn) {
+      // redirect to default to the desired default route upon signing in
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
   }
 
-  if (!isLoggedIn && !isPublicRoute) {
+  if (!isLoggedIn && !isProtectedRoute) {
+    // redirect to login page if user is not logged in while attempting 
+    // to visit a protected route
     return Response.redirect(new URL("auth/login", nextUrl));
   }
+
+  return null; // allow access in all other cases.
 });
 
 /**

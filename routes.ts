@@ -1,13 +1,13 @@
 /**
- * An array of publicly accessible (unprotected routes).
+ * Publicly accessible (unprotected) routes.
  * These routes do not require authentication.
  * @type {string[]}
  */
 const publicRoutes = ["/"];
 
 /**
- * An array of authentication routes.
- * These routes will redirect logged in users to "/settings"
+ * Authentication routes.
+ * These routes will redirect logged in users to DEFAULT_LOGIN_REDIRECT
  * @type {string[]}
  */
 const authRoutes = ["/auth/login", "/auth/register"];
