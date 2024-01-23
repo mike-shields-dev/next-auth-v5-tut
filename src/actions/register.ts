@@ -31,5 +31,7 @@ export async function register(values: z.infer<typeof RegisterSchema>) {
       },
     });
 
+    //TODO: Send verification token email...
+
     return { success: "Email sent" };
 }
