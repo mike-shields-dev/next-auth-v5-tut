@@ -19,9 +19,9 @@ export default auth((req) => {
 
   if (isAPIAuthRoute) {
     // allow access to route
-    return null; 
+    return null;
   }
-  
+
   if (isAuthRoute) {
     if (isLoggedIn) {
       // redirect to default to the desired default route upon signing in
@@ -29,8 +29,8 @@ export default auth((req) => {
     }
   }
 
-  if (!isLoggedIn && !isProtectedRoute) {
-    // redirect to login page if user is not logged in while attempting 
+  if (!isLoggedIn && isProtectedRoute) {
+    // redirect to login page if user is not logged in while attempting
     // to visit a protected route
     return Response.redirect(new URL("auth/login", nextUrl));
   }
