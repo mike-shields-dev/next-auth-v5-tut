@@ -9,7 +9,7 @@ import { RegisterSchema } from '@/schemas';
 
 export async function register(values: z.infer<typeof RegisterSchema>) {
     const validatedFields = RegisterSchema.safeParse(values);
-
+    
     if(!validatedFields.success) {
         return { error: "Invalid fields"};
     }
@@ -18,7 +18,7 @@ export async function register(values: z.infer<typeof RegisterSchema>) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const isExistingUser = await getUserByEmail(email);
-
+    
     if (isExistingUser) {
       return { error: "Email already in use" };
     }
@@ -27,7 +27,7 @@ export async function register(values: z.infer<typeof RegisterSchema>) {
       data: {
         name,
         email,
-        password: hashedPassword, // IMPORTANT: Always use hashed password
+        password: hashedPassword, // IMPORTANT: Always use hashed password!!
       },
     });
 
