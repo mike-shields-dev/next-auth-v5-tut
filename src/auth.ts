@@ -13,17 +13,19 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    // @ts-ignore (token)
     async session({ session, token }) {
-      if(session.user) {
+      if (session.user) {
         if (token.sub) {
           session.user.id = token.sub;
         }
-        if(token.role) {
+        if (token.role) {
           session.user.role = token.role;
         }
       }
-      return session; 
+      return session;
     },
+
     async jwt({ token }) {
       if (!token.sub) return token;
 
@@ -38,6 +40,6 @@ export const {
     },
   },
   adapter: PrismaAdapter(db),
-  session: { strategy: 'jwt' },
+  session: { strategy: "jwt" },
   ...authConfig,
 });
