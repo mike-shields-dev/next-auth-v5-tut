@@ -6,6 +6,8 @@ import { db } from '@/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { UserRole } from '@prisma/client';
 
+import { ExtendedUser } from '../next-auth';
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -13,6 +15,19 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    async signIn({ user }) {
+      const { id } = user as ExtendedUser;
+      const foundUser = await getUserById(id);
+
+      if (
+        !foundUser
+        // TODO:
+        // || !foundUser.emailVerified
+      ) {
+        return false;
+      }
+      return true;
+    },
     // @ts-ignore (token)
     async session({ session, token }) {
       if (session.user) {
@@ -27,7 +42,7 @@ export const {
     },
 
     async jwt({ token }) {
-      if (!token.sub) return token;
+      if (!token.sub) return token; // logged out
 
       const userId = token.sub;
       const user = await getUserById(userId);
