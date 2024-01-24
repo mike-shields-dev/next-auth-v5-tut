@@ -22,7 +22,7 @@ export const {
           session.user.role = token.role;
         }
       }
-      return session;
+      return session; 
     },
     async jwt({ token }) {
       if (!token.sub) return token;
