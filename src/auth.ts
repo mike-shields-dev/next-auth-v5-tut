@@ -1,4 +1,5 @@
-import NextAuth from 'next-auth';
+import NextAuth, { Session } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
 
 import { PrismaAdapter } from '@auth/prisma-adapter';
 
@@ -12,12 +13,16 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    async session({token, session}) {
+      console.log({sessionToken: token, session });
+      return session;
+    },
     async jwt({ token }) {
       console.log({ token });
       return token;
     }
   },
   adapter: PrismaAdapter(db),
-  session: { strategy: "jwt" },
+  session: { strategy: 'jwt' },
   ...authConfig,
 });
