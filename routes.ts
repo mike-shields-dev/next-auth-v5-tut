@@ -16,7 +16,7 @@ const authRoutes = ["/auth/login", "/auth/register"];
  * The prefix for API auth routes.
  * @type {string}
  */
-const apiAuthPrefix = "/auth";
+const apiAuthPrefix = "/api/auth";
 
 /**
  * The default redirect path after logging in.

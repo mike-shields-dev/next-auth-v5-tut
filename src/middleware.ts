@@ -27,6 +27,8 @@ export default auth((req) => {
       // redirect to default to the desired default route upon signing in
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
+
+    return null; 
   }
 
   if (!isLoggedIn && isProtectedRoute) {
