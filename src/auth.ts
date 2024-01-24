@@ -4,6 +4,7 @@ import { getUserById } from '@/app/data/user';
 import authConfig from '@/auth.config';
 import { db } from '@/lib/db';
 import { PrismaAdapter } from '@auth/prisma-adapter';
+import { UserRole } from '@prisma/client';
 
 export const {
   handlers: { GET, POST },
@@ -31,12 +32,12 @@ export const {
 
       if (!user) return token;
 
-      token.role = user.role;
+      token.role = user.role as UserRole;
 
       return token;
     },
   },
   adapter: PrismaAdapter(db),
-  session: { strategy: "jwt" },
+  session: { strategy: 'jwt' },
   ...authConfig,
 });
