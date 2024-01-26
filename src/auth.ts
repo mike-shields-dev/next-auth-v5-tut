@@ -19,13 +19,8 @@ export const {
       const { id } = user as ExtendedUser;
       const foundUser = await getUserById(id);
 
-      if (
-        !foundUser
-        // TODO:
-        // || !foundUser.emailVerified
-      ) {
-        return false;
-      }
+
+
       return true;
     },
     // @ts-ignore (token)
