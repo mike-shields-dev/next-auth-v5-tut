@@ -2,7 +2,9 @@
 import { AuthError } from 'next-auth';
 import * as z from 'zod';
 
+import { getUserByEmail } from '@/app/data/user';
 import { signIn } from '@/auth';
+import { generateVerificationToken } from '@/lib/tokens';
 import { LoginSchema } from '@/schemas';
 
 import { DEFAULT_LOGIN_REDIRECT } from '../../routes';
@@ -12,6 +14,17 @@ export async function login(values: z.infer<typeof LoginSchema>) {
   if (!validatedFields.success) return { error: "Invalid fields" };
 
   const { email, password } = validatedFields.data;
+
+  const existingUser = await getUserByEmail(email);
+
+  if (!(existingUser?.email && existingUser?.password)) {
+    return { error: "An account with that email does not exist" };
+  }
+
+  if (!existingUser.emailVerified) {
+    const verificationToken = generateVerificationToken(existingUser.email);
+    return { success: "Confirmation email sent" };
+  }
 
   try {
     await signIn("credentials", {
@@ -28,8 +41,7 @@ export async function login(values: z.infer<typeof LoginSchema>) {
         default:
           return { error: "Unknown error" };
       }
-    }
-
+    } 
     // Error must be thrown to initiate redirectTo: DEFAULT_LOGIN_REDIRECT
     throw error; 
   }

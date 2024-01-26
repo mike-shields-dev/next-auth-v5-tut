@@ -27,9 +27,18 @@ export const {
     },
   },
   callbacks: {
-    async signIn({ user, profile }) {
+    async signIn({ user, account }) {
+      if (account?.provider !== "credentials") {
+        // Allow OAuth without email verification
+        return true;
+      }
+
       const { id } = user as ExtendedUser;
-      const foundUser = await getUserById(id);
+      const existingUser = await getUserById(id);
+
+      if (!existingUser?.emailVerified) return false;
+
+      // TODO: Add 2FA check
 
       return true;
     },
