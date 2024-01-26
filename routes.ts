@@ -3,19 +3,14 @@
  * These routes do not require authentication.
  * @type {string[]}
  */
-const publicRoutes = ["/"];
+const publicRoutes = ["/", "/auth/new-verification"];
 
 /**
  * Authentication routes.
  * These routes will redirect logged in users to DEFAULT_LOGIN_REDIRECT
  * @type {string[]}
  */
-const authRoutes = [
-  "/auth/login",
-  "/auth/register",
-  "/auth/error",
-  "/auth/new-verification"
-];
+const authRoutes = ["/auth/login", "/auth/register", "/auth/error"];
 
 /**
  * The prefix for API auth routes.
@@ -29,4 +24,5 @@ const apiAuthPrefix = "/api/auth";
  */
 const DEFAULT_LOGIN_REDIRECT = "/settings";
 
-export { apiAuthPrefix, authRoutes, DEFAULT_LOGIN_REDIRECT, publicRoutes };
+export { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, authRoutes, publicRoutes };
+

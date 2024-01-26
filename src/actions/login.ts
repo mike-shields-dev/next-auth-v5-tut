@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { getUserByEmail } from '@/app/data/user';
 import { signIn } from '@/auth';
-import { sendVerificationEmail } from "@/lib/mail";
+import { sendVerificationEmail } from '@/lib/mail';
 import { generateVerificationToken } from '@/lib/tokens';
 import { LoginSchema } from '@/schemas';
 
