@@ -5,7 +5,7 @@ import {
   useTransition,
 } from 'react';
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -78,6 +78,7 @@ export default function LoginForm() {
                       type="email"
                       placeholder="Enter your email address"
                       disabled={isPending}
+                      autoComplete="true"
                     />
                   </FormControl>
                   <FormMessage />

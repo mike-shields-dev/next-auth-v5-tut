@@ -72,6 +72,7 @@ export function RegisterForm() {
                       type="text"
                       placeholder="Enter your name"
                       disabled={isPending}
+                      autoComplete="true"
                     />
                   </FormControl>
                   <FormMessage />
@@ -90,6 +91,7 @@ export function RegisterForm() {
                       type="email"
                       placeholder="Enter your email address"
                       disabled={isPending}
+                      autoComplete="true"
                     />
                   </FormControl>
                   <FormMessage />
