@@ -29,10 +29,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>("");
-  const urlError =
+  const [urlError, setUrlError] = useState<string | undefined>(
     useSearchParams().get("error") === "OAuthAccountNotLinked"
-      ? "Email already in use with different provider"
-      : "";
+      ? "Email already in use"
+      : ""
+  );
+
   const [success, setSuccess] = useState<string | undefined>("");
 
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -44,6 +46,7 @@ export default function LoginForm() {
   });
 
   function onSubmit(values: z.infer<typeof LoginSchema>) {
+    setUrlError("");
     setError("");
     setSuccess("");
 

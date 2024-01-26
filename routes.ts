@@ -10,7 +10,12 @@ const publicRoutes = ["/"];
  * These routes will redirect logged in users to DEFAULT_LOGIN_REDIRECT
  * @type {string[]}
  */
-const authRoutes = ["/auth/login", "/auth/register", "/auth/error"];
+const authRoutes = [
+  "/auth/login",
+  "/auth/register",
+  "/auth/error",
+  "/auth/new-verification"
+];
 
 /**
  * The prefix for API auth routes.
